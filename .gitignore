@@ -1,0 +1,37 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# macOS files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Model files (optional)
+# Uncomment if models become large
+# *.pkl
+# *.joblib

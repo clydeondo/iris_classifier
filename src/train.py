@@ -4,6 +4,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score 
 from sklearn.metrics import confusion_matrix                                              
 from sklearn.neighbors import KNeighborsClassifier
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 iris=load_iris() 
 
@@ -35,4 +38,29 @@ print("k-NN accuracy:", accuracy_score(y_test, y_pred_knn))
 
 model = DecisionTreeClassifier(max_depth=3, random_state=42)
 model.fit(X_train, y_train)
+
+joblib.dump(model, "outputs/model.joblib")
+print("Model saved to outputs/model.joblib")
+
+plt.figure(figsize=(8, 6))
+
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=iris.target_names,
+    yticklabels=iris.target_names
+)
+
+plt.ylabel("Actual")
+plt.xlabel("Predicted")
+plt.title("Confusion Matrix")
+
+# Save the figure
+plt.savefig("outputs/confusion_matrix.png")
+
+print("Confusion matrix saved to outputs/confusion_matrix.png")
+
+plt.close()
 
